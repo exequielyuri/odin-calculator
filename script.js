@@ -27,3 +27,19 @@ function operate(a, b, operator) {
         console.log(`${operator} is an invalid operator.`);
     }
 }
+
+function addToDisplay(button) {
+    const text = button.target.textContent;
+    displayContent += text;
+    updateDisplay();
+}
+
+function updateDisplay() {
+    display.textContent = displayContent;
+}
+
+let displayContent = "";
+
+const display = document.getElementById("display");
+const buttons = document.querySelectorAll("#buttons button");
+buttons.forEach((button) => button.addEventListener("click", addToDisplay));

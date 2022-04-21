@@ -4,25 +4,59 @@
 }
 
 body {
-    
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Fira Code", monospace;
+    background-image: linear-gradient(190deg, rgb(222, 249, 222), rgba(174, 205, 174, 0.985));
 }
 
 #calculator {
-    height: 100vh;
+    background-color: #caeeda;
+    padding: 13px 10px;
+    border: 2px solid black;
+    border-radius: 5px;
     display: grid;
-
-    grid-template-areas:
+    grid-template:
         "dis dis dis cle"
+        "px px px px"
         "sev eig nin add"
         "fou fiv six sub"
         "one two thr mul"
-        "zer dot equ div";
-
-    grid-template-columns: 20% 20% 20% 20%;
-    grid-template-rows: 20% 20% 20% 20%;
+        "dot zer equ div";
+    width: auto;
+    height: auto;
+    grid-gap: 8px;
+    justify-items: center;
+    align-items: center;
 }
 
-#display {grid-area: dis}
+#display {
+    background-color: rgb(255, 253, 236);
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 90%;
+    height: 90%;
+    padding-left: 8px;
+    grid-area: dis;
+    display: flex;
+    justify-self: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 50px;
+}
+
+
+
 #clear {grid-area: cle}
 #plus {grid-area: add}
 #minus {grid-area: sub}
@@ -40,3 +74,44 @@ body {
 #eight {grid-area: eig}
 #nine {grid-area: nin}
 #dot {grid-area: dot}
+
+#clear,
+#equals,
+#dot {
+    background-color: #0ec35346;
+}
+
+.operator {
+    background-color: #0bd92d56;
+}
+
+.numbers {
+    background-color: #35f01847;
+}
+
+button:hover {
+    animation-name: shrink-darken;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes shrink-darken{
+    100% {
+        background-color: rgba(0, 0, 0, 0.199);
+        transform: scale(0.9);
+    }
+}
+
+#display:hover {
+    animation-name: widen;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes widen {
+    100% {
+        width: 128%;
+        height: 100.03%;
+        transform: scale(1.005)
+    }
+}

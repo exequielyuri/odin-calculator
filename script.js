@@ -11,6 +11,9 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if (b === 0) {
+        alert("dont divide by 0");
+    }
     return a / b;
 }
 
@@ -29,7 +32,7 @@ function operate(a, b, operator) {
 }
 
 function isNumber(str) {
-    return !isNaN(Number(str));
+    return !isNaN(Number(str)) && str !== "";
 }
 
 function isFull() {
@@ -39,6 +42,7 @@ function isFull() {
 function resetAll() {
     displayContent = "";
     operands = [];
+    result = "";
 }
 
 function updateDisplay() {
@@ -52,6 +56,11 @@ function getResult() {
     if (result % 1 !== 0) { // if has decimal
         result = Math.floor(result * 100) / 100; // round to two decimal places
     }
+
+    if (result === Infinity) {
+        result = "";
+    }
+    
     displayContent = `= ${result}`;
 }
 
@@ -80,10 +89,18 @@ function execute(button) {
             if (isNumber(displayContent)) {
                 operands.push(displayContent);
             }
-            getResult();
+            if (isFull()) {
+                let bool = isFull();
+                getResult();
+            }
             break;
         case 'clear':
             resetAll();
+            break;
+        case '.':
+            if (!displayContent.includes('.')) {
+                displayContent += task;
+            }
             break;
         default: // must be a number
             if (!isNumber(displayContent)) {

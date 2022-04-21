@@ -78,7 +78,7 @@ function execute(button) {
             
             if (isFull()) {
                 getResult();
-                operands.push(result)
+                operands.push(result);
             } else {
                 displayContent = "";
             }

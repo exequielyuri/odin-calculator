@@ -12,7 +12,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        alert("dont divide by 0");
+        alert("Hmm, I wonder why some people just loves dividing by zero 🤔");
     }
     return a / b;
 }
@@ -90,7 +90,6 @@ function execute(button) {
                 operands.push(displayContent);
             }
             if (isFull()) {
-                let bool = isFull();
                 getResult();
             }
             break;
@@ -118,5 +117,5 @@ let operator;
 let result;
 
 const display = document.getElementById("display");
-const buttons = document.querySelectorAll("#buttons button");
+const buttons = document.querySelectorAll("#calculator button");
 buttons.forEach((button) => button.addEventListener("click", execute));

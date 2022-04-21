@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    
+}
+
+#calculator {
+    height: 100vh;
+    display: grid;
+
+    grid-template-areas:
+        "dis dis dis cle"
+        "sev eig nin add"
+        "fou fiv six sub"
+        "one two thr mul"
+        "zer dot equ div";
+
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20%;
+}
+
+#display {grid-area: dis}
+#clear {grid-area: cle}
+#plus {grid-area: add}
+#minus {grid-area: sub}
+#times {grid-area: mul}
+#divide {grid-area: div}
+#equals {grid-area: equ}
+#zero {grid-area: zer}
+#one {grid-area: one}
+#two {grid-area: two}
+#three {grid-area: thr}
+#four {grid-area: fou}
+#five {grid-area: fiv}
+#six {grid-area: six}
+#seven {grid-area: sev}
+#eight {grid-area: eig}
+#nine {grid-area: nin}
+#dot {grid-area: dot}
